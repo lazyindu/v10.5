@@ -230,9 +230,12 @@ async def start(client, message):
             try:
                 print(' bot hit verification')
                 zab_user_id = message.from_user.id
+
                 if not await check_verification(client, zab_user_id):
+                    lazy_url = await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")
+                    print(f"Verification URL: {lazy_url}")  # Debugging step
                     lazy_verify_btn = [[
-                        InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                        InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=lazy_url)
                     ]]
                     await message.reply_text(
                         text="<b>ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ✅</b>",
@@ -420,8 +423,10 @@ async def start(client, message):
                 print(' bot hit verification')
                 zab_user_id = message.from_user.id
                 if not await check_verification(client, zab_user_id):
+                    lazy_url_x = await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")
+                    print(f"Verification URL: {lazy_url_x}")  # Debugging step
                     lazy_verify_btn = [[
-                        InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                        InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=lazy_url_x)
                     ]]
                     await message.reply_text(
                         text="<b>ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ✅</b>",
@@ -493,8 +498,10 @@ async def start(client, message):
                 print(' bot hit verification')
                 zab_user_id = message.from_user.id
                 if not await check_verification(client, zab_user_id):
+                    lazy_url_y = await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")
+                    print(f"Verification URL: {lazy_url_y}")  # Debugging step
                     lazy_verify_btn = [[
-                        InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                        InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=lazy_url_y)
                     ]]
                     await message.reply_text(
                         text="<b>ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ✅</b>",
@@ -558,8 +565,10 @@ async def start(client, message):
         print(' bot hit verification')
         zab_user_id = message.from_user.id
         if not await check_verification(client, zab_user_id):
+            lazy_url_z = await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=")
+            print(f"Verification URL: {lazy_url_z}")  # Debugging step
             lazy_verify_btn = [[
-                InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=lazy_url_z)
             ]]
             await message.reply_text(
                 text="<b>ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ✅</b>",
