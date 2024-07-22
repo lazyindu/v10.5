@@ -1595,6 +1595,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
+                print('file is hiting else part')
                 # Create the inline keyboard button with callback_data
                 button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
                 # Create the inline keyboard markup with the button

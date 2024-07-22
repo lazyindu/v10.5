@@ -243,7 +243,7 @@ async def start(client, message):
             except Exception as e:
                 print(f"Exception occurred: {str(e)}")
                 # Replace with appropriate chat_id where you want to send the error message
-                await client.send_message(chat_id, f"Something went wrong: {str(e)}. Please contact my admin @LazyDeveloperr")
+                # await client.send_message(chat_id, f"Something went wrong: {str(e)}. Please contact my admin @LazyDeveloperr")
                 return
 
             try:
@@ -415,7 +415,25 @@ async def start(client, message):
                     f_caption=f_caption
             if f_caption is None:
                 f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))}"
-            
+                # check verification => ✅ FINAL verificatio_steps [Youtube@LazyDeveloperr]
+            try:
+                print(' bot hit verification')
+                zab_user_id = message.from_user.id
+                if not await check_verification(client, zab_user_id):
+                    lazy_verify_btn = [[
+                        InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                    ]]
+                    await message.reply_text(
+                        text="<b>ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ✅</b>",
+                        protect_content=True,
+                        reply_markup=InlineKeyboardMarkup(lazy_verify_btn)
+                    )
+                    return
+            except Exception as e:
+                print(f"Exception occurred: {str(e)}")
+                # Replace with appropriate chat_id where you want to send the error message
+                # await client.send_message(chat_id, f"Something went wrong: {str(e)}. Please contact my admin @LazyDeveloperr")
+                return
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
@@ -487,7 +505,7 @@ async def start(client, message):
             except Exception as e:
                 print(f"Exception occurred: {str(e)}")
                 # Replace with appropriate chat_id where you want to send the error message
-                await client.send_message(chat_id, f"Something went wrong: {str(e)}. Please contact my admin @LazyDeveloperr")
+                # await client.send_message(chat_id, f"Something went wrong: {str(e)}. Please contact my admin @LazyDeveloperr")
                 return
             
             # Create the inline keyboard button with callback_data
@@ -535,26 +553,25 @@ async def start(client, message):
     if f_caption is None:
         f_caption = f"{files.file_name}"
 
-        # check verification => ✅ FINAL verificatio_steps [Youtube@LazyDeveloperr]
-        try:
-            print(' bot hit verification')
-            zab_user_id = message.from_user.id
-            if not await check_verification(client, zab_user_id):
-                lazy_verify_btn = [[
-                    InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
-                ]]
-                await message.reply_text(
-                    text="<b>ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ✅</b>",
-                    protect_content=True,
-                    reply_markup=InlineKeyboardMarkup(lazy_verify_btn)
-                )
-                return
-        except Exception as e:
-            print(f"Exception occurred: {str(e)}")
-            # Replace with appropriate chat_id where you want to send the error message
-            await client.send_message(chat_id, f"Something went wrong: {str(e)}. Please contact my admin @LazyDeveloperr")
+    # check verification => ✅ FINAL verificatio_steps [Youtube@LazyDeveloperr]
+    try:
+        print(' bot hit verification')
+        zab_user_id = message.from_user.id
+        if not await check_verification(client, zab_user_id):
+            lazy_verify_btn = [[
+                InlineKeyboardButton("✅ ᴠᴇʀɪꜰʏ ✅", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+            ]]
+            await message.reply_text(
+                text="<b>ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ✅</b>",
+                protect_content=True,
+                reply_markup=InlineKeyboardMarkup(lazy_verify_btn)
+            )
             return
-
+    except Exception as e:
+        print(f"Exception occurred: {str(e)}")
+        # Replace with appropriate chat_id where you want to send the error message
+        # await client.send_message(chat_id, f"Something went wrong: {str(e)}. Please contact my admin @LazyDeveloperr")
+        return
     
     button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
     # Create the inline keyboard markup with the button
