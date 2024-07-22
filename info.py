@@ -99,7 +99,7 @@ URL_SHORTNER_WEBSITE_API = environ.get('URL_SHORTNER_WEBSITE_API', '72a7f0131e5e
 
 #4 => verificatio_steps ! [Youtube@LazyDeveloperr]
 # URL SHORTNER FOR USER VERIFICATION
-IS_LAZYUSER_VERIFY = is_enabled((environ.get("IS_LAZYUSER_VERIFY","True")), False) # make it true to enable url shortner in groups or pm
+IS_LAZYUSER_VERIFICATION = is_enabled((environ.get("IS_LAZYUSER_VERIFICATION","True")), False) # make it true to enable url shortner in groups or pm
 LAZY_SHORTNER_API = environ.get('LAZY_SHORTNER_API', 'atglinks.com') #Always use website url from api section 
 LAZY_SHORTNER_URL = environ.get('LAZY_SHORTNER_URL', '72a7f0131e5e657e37cf7e2a9e928a616b671cf5')
 
