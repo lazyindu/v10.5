@@ -626,6 +626,7 @@ async def get_verify_shorted_link(link):
 
         except Exception as e:
             logger.error(e)
+            print(e)
             return f'{URL}/api?api={API}&link={link}'
 
 async def check_token(bot, userid, token):
@@ -652,6 +653,7 @@ async def get_token(bot, userid, link):
     token = ''.join(random.choices(string.ascii_letters + string.digits, k=7))
     TOKENS[user.id] = {token: False}
     link = f"{link}verify-{user.id}-{token}"
+    print(link)
     shortened_verify_url = await get_verify_shorted_link(link)
     return str(shortened_verify_url)
 
